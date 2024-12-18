@@ -4,6 +4,6 @@ public record ArmorResponse(
         int id,
         String name,
         int defense,
-        int weight
-) {
+        int weight,
+        CharacterResponse character) {
 }
