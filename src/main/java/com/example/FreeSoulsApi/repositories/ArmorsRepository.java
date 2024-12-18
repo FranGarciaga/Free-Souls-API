@@ -1,4 +1,7 @@
 package com.example.FreeSoulsApi.repositories;
 
-public interface ArmorsRepository {
+import com.example.FreeSoulsApi.entities.Armors;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ArmorsRepository extends JpaRepository<Armors, Integer> {
 }
