@@ -40,11 +40,11 @@ public class Character {
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "character")
-    private List<Weapons> weapons;
+    private List<Weapon> weapons;
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "character")
-    private List<Armors> armors;
+    private List<Armor> armors;
 
     public Character(String name, int level, String characterType, int health, int stamina, int strength) {
         this.name = name;

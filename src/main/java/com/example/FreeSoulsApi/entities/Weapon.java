@@ -12,31 +12,35 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Armors {
+public class Weapon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_armor")
+
+    @Column(name = "id_weapon", nullable = false)
     private int id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "defense")
-    private int defense;
+    @Column(name = "damage")
+    private int damage;
 
     @Column(name = "weight")
     private int weight;
 
+    @Column(name = "weaponType")
+    private String weaponType;
+
     @ManyToOne
     @JoinColumn(name = "character_id")
-    @JsonIgnoreProperties(value = "armors")
+    @JsonIgnoreProperties(value = "weapons")
     private Character character;
 
-    public Armors(String name, int defense, int weight, Character character) {
+    public Weapon(String name, int damage, int weight, String weaponType, Character character) {
         this.name = name;
-        this.defense = defense;
+        this.damage = damage;
         this.weight = weight;
+        this.weaponType = weaponType;
         this.character = character;
     }
 }
