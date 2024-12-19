@@ -2,7 +2,7 @@ package com.example.FreeSoulsApi.services;
 
 import com.example.FreeSoulsApi.dtos.CharacterRequest;
 import com.example.FreeSoulsApi.dtos.CharacterResponse;
-import com.example.FreeSoulsApi.exeptions.GlobalExceptionHandler;
+import com.example.FreeSoulsApi.entities.CharacterType;
 import com.example.FreeSoulsApi.exeptions.NoRegistersFoundException;
 import com.example.FreeSoulsApi.mappers.CharacterMapper;
 import com.example.FreeSoulsApi.repositories.CharacterRepository;
@@ -77,14 +77,10 @@ public class CharacterService {
     public CharacterResponse updateCharacter(Long id, CharacterRequest characterRequest) {
         Optional<Character> characterToUpdate = characterRepository.findById(id);
 
-        if (characterToUpdate.isEmpty()) {
-            throw new NoRegistersFoundException(id);
-        }
-
         Character character = characterToUpdate.get();
         character.setName(characterRequest.name());
         character.setLevel(characterRequest.level());
-        character.setCharacterType(characterRequest.characterType());
+        character.setCharacterType(CharacterType.valueOf(characterRequest.characterType()));
         character.setHealth(characterRequest.health());
         character.setStamina(characterRequest.stamina());
         character.setStrength(characterRequest.strength());

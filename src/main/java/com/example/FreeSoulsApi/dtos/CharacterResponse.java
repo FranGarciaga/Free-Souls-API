@@ -1,5 +1,7 @@
 package com.example.FreeSoulsApi.dtos;
 
+import com.example.FreeSoulsApi.entities.CharacterType;
+
 public record  CharacterResponse(
         Long id,
         String name,

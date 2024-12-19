@@ -26,8 +26,9 @@ public class Character {
     @Column(name = "level")
     private int level;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "characterType")
-    private String characterType;
+    private CharacterType characterType;
 
     @Column(name = "health")
     private int health;
@@ -46,12 +47,14 @@ public class Character {
     @JsonIgnoreProperties(value = "character")
     private List<Armor> armors;
 
-    public Character(String name, int level, String characterType, int health, int stamina, int strength) {
+    public Character(String name, int level, CharacterType characterType, int health, int stamina, int strength) {
         this.name = name;
         this.level = level;
         this.characterType = characterType;
-        this.health = health;
-        this.stamina = stamina;
-        this.strength = strength;
+        this.health = characterType.getHealth();
+        this.stamina = characterType.getStamina();
+        this.strength = characterType.getStrength();
     }
+
+
 }

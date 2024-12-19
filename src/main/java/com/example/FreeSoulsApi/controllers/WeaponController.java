@@ -1,8 +1,10 @@
 package com.example.FreeSoulsApi.controllers;
 
+import com.example.FreeSoulsApi.dtos.ArmorRequest;
+import com.example.FreeSoulsApi.dtos.ArmorResponse;
 import com.example.FreeSoulsApi.dtos.WeaponRequest;
 import com.example.FreeSoulsApi.dtos.WeaponResponse;
-import com.example.FreeSoulsApi.services.WeaponsService;
+import com.example.FreeSoulsApi.services.WeaponService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +12,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/weapons")
-public class WeaponsController {
-    private final WeaponsService weaponsService;
-    public WeaponsController(WeaponsService weaponsService) {
+public class WeaponController {
+    private final WeaponService weaponsService;
+    public WeaponController(WeaponService weaponsService) {
         this.weaponsService = weaponsService;
 
     }
@@ -30,5 +32,16 @@ public class WeaponsController {
     @GetMapping("/{id}")
     public WeaponResponse getWeaponById(@PathVariable Long id){
         return weaponsService.findWeaponById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteWeapon(@PathVariable Long id) {
+        weaponsService.deleteById(id);
+    }
+
+    @PutMapping ("/{id}")
+    public ResponseEntity<WeaponResponse> updateWeapon(@PathVariable Long id, @RequestBody WeaponRequest weaponRequest){
+        WeaponResponse weapon = weaponsService.updateWeapon(id, weaponRequest);
+        return new ResponseEntity<>(weapon, HttpStatus.OK);
     }
 }

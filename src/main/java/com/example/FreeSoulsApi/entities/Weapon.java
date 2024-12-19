@@ -29,18 +29,19 @@ public class Weapon {
     @Column(name = "weight")
     private int weight;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "weaponType")
-    private String weaponType;
+    private WeaponType weaponType;
 
     @ManyToOne
     @JoinColumn(name = "character_id")
     @JsonIgnoreProperties(value = "weapons")
     private Character character;
 
-    public Weapon(String name, int damage, int weight, String weaponType, Character character) {
+    public Weapon(String name, int damage, int weight, WeaponType weaponType, Character character) {
         this.name = name;
-        this.damage = damage;
-        this.weight = weight;
+        this.damage = weaponType.getDamage();
+        this.weight = weaponType.getWeight();
         this.weaponType = weaponType;
         this.character = character;
     }
