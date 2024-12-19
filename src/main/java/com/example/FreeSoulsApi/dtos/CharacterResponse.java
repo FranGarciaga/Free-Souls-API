@@ -1,7 +1,7 @@
 package com.example.FreeSoulsApi.dtos;
 
 public record  CharacterResponse(
-        int id,
+        Long id,
         String name,
         int level,
         String characterType,

@@ -3,6 +3,7 @@ package com.example.FreeSoulsApi.mappers;
 import com.example.FreeSoulsApi.dtos.ArmorRequest;
 import com.example.FreeSoulsApi.dtos.ArmorResponse;
 import com.example.FreeSoulsApi.entities.Armor;
+import com.example.FreeSoulsApi.entities.Character;
 
 public class ArmorMapper {
     public static Armor fromRequest(ArmorRequest armorRequest, Character character) {

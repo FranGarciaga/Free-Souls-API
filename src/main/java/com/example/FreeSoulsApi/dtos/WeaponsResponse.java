@@ -1,7 +1,7 @@
 package com.example.FreeSoulsApi.dtos;
 
 public record WeaponsResponse(
-        int id,
+        Long id,
         String name,
         int damage,
         int weight,

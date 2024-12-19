@@ -17,7 +17,7 @@ public class Weapon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "id_weapon", nullable = false)
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;

@@ -29,7 +29,7 @@ public class ArmorsController {
         return armorsService.getAllArmors();
     }
 @GetMapping("/{id}")
-    public ArmorResponse getArmorById(@PathVariable int id){
+    public ArmorResponse getArmorById(@PathVariable Long id){
         return armorsService.findByIdArmor(id);
     }
 }
