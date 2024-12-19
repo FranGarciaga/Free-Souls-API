@@ -16,6 +16,7 @@ import lombok.Setter;
 public class Armor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "id_armor")
     private Long id;
 
@@ -39,5 +40,4 @@ public class Armor {
         this.weight = weight;
         this.character = character;
     }
-
 }

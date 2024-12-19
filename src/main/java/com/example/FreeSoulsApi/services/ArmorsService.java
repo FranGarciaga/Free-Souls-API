@@ -33,7 +33,7 @@ public class ArmorsService {
         return armorList.stream().map(armor -> ArmorMapper.toResponse(armor)).toList();
     }
 
-    public ArmorResponse findByIdArmor(Long id) {
+    public ArmorResponse findArmorById(Long id) {
         Optional<Armor> optionalArmor = armorsRepository.findById(id);
 
         if (optionalArmor.isEmpty()) {

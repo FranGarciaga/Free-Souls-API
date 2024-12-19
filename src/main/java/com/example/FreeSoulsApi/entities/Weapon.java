@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Weapon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

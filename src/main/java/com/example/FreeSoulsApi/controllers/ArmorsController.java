@@ -6,7 +6,6 @@ import com.example.FreeSoulsApi.services.ArmorsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -30,6 +29,6 @@ public class ArmorsController {
     }
 @GetMapping("/{id}")
     public ArmorResponse getArmorById(@PathVariable Long id){
-        return armorsService.findByIdArmor(id);
+        return armorsService.findArmorById(id);
     }
 }
